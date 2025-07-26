@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: gmail-labeler-backend
+    env: docker
+    region: oregon
+    plan: free
+    branch: main
+    autoDeploy: true
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    envVars:
+      - key: N8N_HOST
+        value: gmail-labeler-backend.onrender.com
+      - key: N8N_PORT
+        value: 5678
+      - key: WEBHOOK_URL
+        value: https://gmail-labeler-backend.onrender.com
+      - key: N8N_PROTOCOL
+        value: https
+      - key: NODE_ENV
+        value: production
